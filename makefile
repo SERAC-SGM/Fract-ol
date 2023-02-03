@@ -45,8 +45,7 @@ printf:
 minilibx-linux: 
 	@make -C $(MLX_DIR)
 
-
-$(NAME): ${OBJS_PATH} minilibx-linux
+$(NAME): minilibx-linux printf ${OBJS_PATH}
 	$(CC) $(CFLAGS) $(OBJS_PATH) $(CFLAGS_MLX) $(LDFLAGS) -o $(NAME) -lm
 
 test:
