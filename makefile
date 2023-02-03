@@ -25,6 +25,9 @@ OBJS		=	$(SRCS:.c=.o)
 OBJS_DIR	=	objs/
 OBJS_PATH	=	$(addprefix $(OBJS_DIR), $(OBJS))
 
+#ft_printf
+PRINTF_DIR = ./printf
+
 #Minilibx
 MLX_DIR		=	./minilibx-linux
 CFLAGS_MLX	=	-I $(MLX_DIR)
@@ -36,10 +39,14 @@ $(OBJS_DIR)%.o:	$(SRCS_DIR)%.c $(DEPS_PATH)
 
 all:		$(NAME)
 
-minilibx: 
+printf:
+	@make -C $(PRINTF_DIR)
+
+minilibx-linux: 
 	@make -C $(MLX_DIR)
 
-$(NAME): ${OBJS_PATH} minilibx
+
+$(NAME): ${OBJS_PATH} minilibx-linux
 	$(CC) $(CFLAGS) $(OBJS_PATH) $(CFLAGS_MLX) $(LDFLAGS) -o $(NAME) -lm
 
 test:
@@ -51,15 +58,21 @@ valgrind :	${OBJS_PATH}
 mac :		${OBJS_PATH}
 	$(CC) $(OBJS_PATH) -I /usr/X11/include -g -L /usr/X11/lib -l mlx -framework OpenGL -framework AppKit -o $(NAME)
 
+clean_printf:
+	@make clean -C $(PRINTF_DIR)
+
+fclean_printf:
+	@make fclean -C $(PRINTF_DIR)
+
 clean_minilibx:
 	@make clean -C $(MLX_DIR)
 
-clean: clean_minilibx
+clean: clean_minilibx clean_printf
 	@rm -rf ${OBJS_DIR}
 
-fclean:		clean
+fclean:		clean fclean_printf
 	@rm -f ${NAME} $(NAME).vgr $(NAME).test
 
 re:			fclean all
 
-.PHONY :	all minilibx valgrind mac clean fclean re
+.PHONY :	all valgrind mac clean fclean re

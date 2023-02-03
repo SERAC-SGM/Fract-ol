@@ -6,3 +6,4 @@ fractol.test
 objs/
 .normignore
 .vscode/
+other/
