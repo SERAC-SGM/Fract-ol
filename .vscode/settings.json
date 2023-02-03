@@ -25,5 +25,14 @@
         "mlx.h": "c",
         "keysym.h": "c",
         "cmath": "c"
-    }
+    },
+    "cSpell.words": [
+        "fractol",
+        "kesysym",
+        "keysym",
+        "XMAX",
+        "xmin",
+        "YMAX",
+        "ymin"
+    ]
 }

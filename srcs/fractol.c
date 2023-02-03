@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:29:46 by lletourn          #+#    #+#             */
-/*   Updated: 2023/01/28 18:42:22 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:19:17 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static int	init_data(t_data *data)
 	data->ymax = YMAX;
 	data->ymin = YMIN;
 	data->zoom_factor = ZOOM_FACTOR;
+	data->move_factor = MOVE_FACTOR;
 	data->x_offset = 0.0;
 	data->y_offset = 0.0;
 	data->mlx_ptr = mlx_init();

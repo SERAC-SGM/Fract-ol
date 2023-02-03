@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keys.h                                             :+:      :+:    :+:   */
+/*   input.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 13:59:47 by lletourn          #+#    #+#             */
-/*   Updated: 2023/01/28 17:20:59 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/03 16:33:17 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEYS_H
-# define KEYS_H
+#ifndef INPUT_H
+# define INPUT_H
 
 # include <X11/keysym.h>
 
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
+# define WINDOW_CLOSED 17
 
 int	handle_keypress(int keysym, t_data *data);
 int	handle_mouse_input(int button, int x, int y, t_data *data);

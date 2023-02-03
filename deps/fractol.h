@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:26:24 by lletourn          #+#    #+#             */
-/*   Updated: 2023/01/30 17:40:20 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:29:21 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <unistd.h>
 
 # include "window.h"
-# include "keys.h"
+# include "input.h"
 # include "maths.h"
 
 # define ITER_MAX 1000
@@ -33,11 +33,12 @@
 # define WINDOW_HEIGHT 800
 
 # define ZOOM_FACTOR 1.1
+# define MOVE_FACTOR 0.05
 
 int		render(t_data *data);
 
-//COLORS FUNCTIONS
-// standard iteration count
+// COLORS FUNCTIONS
+//  standard iteration count
 void	linear_gradient(t_data *data, t_pixel pixel, int n);
 void	monochrome_gradient(t_data *data, t_pixel pixel, int n);
 void	monochrome_gradient_reverse(t_data *data, t_pixel pixel, int n);
@@ -48,4 +49,5 @@ void	monochrome_gradient_fract(t_data *data, t_pixel pixel, double n);
 void	psychedelic1(t_data *data, t_pixel pixel, double n);
 void	psychedelic2(t_data *data, t_pixel pixel, double n);
 void	logarithmic_color_shift(t_data *data, t_pixel pixel, double n);
+
 #endif

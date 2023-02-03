@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:44:14 by lletourn          #+#    #+#             */
-/*   Updated: 2023/01/28 16:17:27 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:28:42 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include "../minilibx-linux/mlx.h"
 # include <X11/X.h>
-
-# define WINDOW_CLOSED 17
 
 typedef struct s_pixel
 {
@@ -43,6 +41,7 @@ typedef struct s_data
 	double	ymin;
 	double	ymax;
 	double	zoom_factor;
+	double	move_factor;
 	double	x_offset;
 	double	y_offset;
 }			t_data;

@@ -5,7 +5,8 @@ SRCS	=	fractol.c	\
 			maths.c		\
 			window.c	\
 			colors.c	\
-			keys.c
+			keys.c		\
+			mouse.c
 
 SRCS_DIR	= srcs/
 SRCS_PATH	= $(addprefix $(SRCS_DIR), $(SRCS))
@@ -15,7 +16,7 @@ NAME	=	./fractol
 DEPS	=	fractol.h	\
 			maths.h		\
 			window.h	\
-			keys.h
+			input.h
 
 DEPS_DIR	= deps/
 DEPS_PATH	= $(addprefix $(DEPS_DIR), $(DEPS))
