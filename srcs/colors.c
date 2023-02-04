@@ -6,13 +6,13 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:32:52 by lletourn          #+#    #+#             */
-/*   Updated: 2023/01/29 11:43:19 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/04 14:57:17 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../deps/fractol.h"
 
-void	linear_gradient(t_data *data, t_pixel pixel, int n)
+void	linear_gradient(t_data *data, t_pixel pixel, double n)
 {
 	int	r;
 	int	g;
@@ -24,29 +24,33 @@ void	linear_gradient(t_data *data, t_pixel pixel, int n)
 	pixel_put_in_image(&data->image, pixel.x, pixel.y, encode_rgb(r, g, b));
 }
 
-void	monochrome_gradient(t_data *data, t_pixel pixel, int n)
+void	monochrome_gradient(t_data *data, t_pixel pixel, double n)
 {
-	pixel_put_in_image(&data->image, pixel.x, pixel.y,
-		encode_rgb(n * 255 / ITER_MAX, n * 255 / ITER_MAX, n * 255 / ITER_MAX));
+	double	x;
+
+	x = n * 255 / ITER_MAX;
+	pixel_put_in_image(&data->image, pixel.x, pixel.y, encode_rgb(x, x, x));
 }
 
-void	monochrome_gradient_reverse(t_data *data, t_pixel pixel, int n)
+void	monochrome_gradient_reverse(t_data *data, t_pixel pixel, double n)
 {
-	pixel_put_in_image(&data->image, pixel.x, pixel.y,
-		encode_rgb(255 - (n * 255 / ITER_MAX), 255
-			- (n * 255 / ITER_MAX), 255 - (n * 255 / ITER_MAX)));
+	double	x;
+
+	x = 255 - (n * 255 / ITER_MAX);
+	pixel_put_in_image(&data->image, pixel.x, pixel.y, encode_rgb(x, x, x));
 }
 
-void	psychedelic0(t_data *data, t_pixel pixel, int n)
+void	psychedelic_bnw(t_data *data, t_pixel pixel, double n)
 {
-	if (n % 2 != 0)
-		pixel_put_in_image(&data->image, pixel.x, pixel.y, encode_rgb(255, 255, 255));
+	if ((int)n % 2 != 0)
+		pixel_put_in_image(&data->image, pixel.x, pixel.y,
+			encode_rgb(255, 255, 255));
 	else
 		pixel_put_in_image(&data->image, pixel.x, pixel.y, encode_rgb(0, 0, 0));
 
 }
 
-void	color_map(t_data *data, t_pixel pixel, int n)
+void	color_map(t_data *data, t_pixel pixel, double n)
 {
 	unsigned char	color[3];
 
@@ -70,12 +74,6 @@ void	color_map(t_data *data, t_pixel pixel, int n)
 	}
 	pixel_put_in_image(&data->image, pixel.x, pixel.y,
 		encode_rgb(color[0], color[1], color[2]));
-}
-
-void	monochrome_gradient_fract(t_data *data, t_pixel pixel, double n)
-{
-	pixel_put_in_image(&data->image, pixel.x, pixel.y,
-		encode_rgb(n * 255 / ITER_MAX, n * 255 / ITER_MAX, n * 255 / ITER_MAX));
 }
 
 void	psychedelic1(t_data *data, t_pixel pixel, double n)
@@ -116,8 +114,6 @@ void	logarithmic_color_shift(t_data *data, t_pixel pixel, double n)
 	int	r = (int)lerp(0, 255, ratio);
 	int	g = (int)lerp(0, 100, ratio);
 	int	b = (int)lerp(100, 255, ratio);
-	//int	g = (int)(255 * ratio);
-	//int	b = (int)(255 * (1 - ratio));
 
 	pixel_put_in_image(&data->image, pixel.x, pixel.y,
 		encode_rgb(r, g, b));

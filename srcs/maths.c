@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:52:06 by lletourn          #+#    #+#             */
-/*   Updated: 2023/02/03 17:56:57 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/04 14:55:54 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	compute_mandelbrot(t_data *data, t_pixel pixel)
 		z.x = temp;
 		iter++;
 	}
-	monochrome_gradient(data, pixel, iter);
+	data->display_set(data, pixel, iter);
 }
 
 void	compute_mandelbrot_fractional(t_data *data, t_pixel pixel)
@@ -65,10 +65,10 @@ void	compute_mandelbrot_fractional(t_data *data, t_pixel pixel)
 		iter++;
 	}
 	fractional_count = iter - log(log(z.x * z.x + z.y * z.y)) * (1 / log(2));
-	monochrome_gradient(data, pixel, fractional_count);
+	data->display_set(data, pixel, fractional_count);
 }
 
-int	render_mandelbrot(t_data *data)
+int	render_each_pixel(t_data *data)
 {
 	t_pixel		pixel;
 
@@ -78,7 +78,7 @@ int	render_mandelbrot(t_data *data)
 		pixel.x = 0;
 		while (pixel.x < WINDOW_WIDTH)
 		{
-			compute_mandelbrot(data, pixel);
+			data->compute_set(data, pixel);
 			pixel.x++;
 		}
 		pixel.y++;

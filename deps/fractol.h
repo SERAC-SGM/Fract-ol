@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:26:24 by lletourn          #+#    #+#             */
-/*   Updated: 2023/02/03 17:29:21 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/04 15:15:21 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@
 # include <unistd.h>
 
 # include "window.h"
-# include "input.h"
+# include "colors.h"
 # include "maths.h"
+# include "mouse_and_keys.h"
+# include "user_input.h"
 
 # define ITER_MAX 1000
 
@@ -34,20 +36,5 @@
 
 # define ZOOM_FACTOR 1.1
 # define MOVE_FACTOR 0.05
-
-int		render(t_data *data);
-
-// COLORS FUNCTIONS
-//  standard iteration count
-void	linear_gradient(t_data *data, t_pixel pixel, int n);
-void	monochrome_gradient(t_data *data, t_pixel pixel, int n);
-void	monochrome_gradient_reverse(t_data *data, t_pixel pixel, int n);
-void	psychedelic0(t_data *data, t_pixel pixel, int n);
-void	color_map(t_data *data, t_pixel pixel, int n);
-// fractional iteration count
-void	monochrome_gradient_fract(t_data *data, t_pixel pixel, double n);
-void	psychedelic1(t_data *data, t_pixel pixel, double n);
-void	psychedelic2(t_data *data, t_pixel pixel, double n);
-void	logarithmic_color_shift(t_data *data, t_pixel pixel, double n);
 
 #endif

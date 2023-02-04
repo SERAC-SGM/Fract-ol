@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:46:07 by lletourn          #+#    #+#             */
-/*   Updated: 2023/01/28 14:00:02 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/04 14:56:05 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,15 @@ void	free_and_exit(t_data *data)
 int	handle_window_closed(t_data *data)
 {
 	free_and_exit(data);
+	return (0);
+}
+
+int	render(t_data *data)
+{
+	if (!data->window_ptr)
+		return (1);
+	render_each_pixel(data);
+	mlx_put_image_to_window(data->mlx_ptr, data->window_ptr,
+		data->image.mlx_image, 0, 0);
 	return (0);
 }
