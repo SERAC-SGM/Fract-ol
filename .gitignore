@@ -5,3 +5,4 @@ objs/
 .vscode/
 other/
 normal_map_effect.c
+printf/libftprintf.a
