@@ -6,5 +6,5 @@ fractol.test
 objs/
 .normignore
 .vscode/
-other/printf/libftprintf.a
+other/
 normal_map_effect.c
