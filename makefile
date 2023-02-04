@@ -53,9 +53,6 @@ minilibx-linux:
 $(NAME): minilibx-linux printf ${OBJS_PATH} 
 	$(CC) $(CFLAGS) $(OBJS_PATH) $(CFLAGS_MLX) $(LDFLAGS) $(CFLAGS_PRINTF) -o $(NAME) -lm
 
-test:
-	$(CC) -g $(CFLAGS) other/test.c $(CFLAGS_MLX) $(LDFLAGS) -o $(NAME).test -lm
-
 valgrind :	minilibx-linux printf ${OBJS_PATH}
 	$(CC) $(CFLAGS) $(OBJS_PATH) $(CFLAGS_MLX) $(LDFLAGS) $(CFLAGS_PRINTF) -o $(NAME).vgr -g -lm
 

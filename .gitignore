@@ -1,8 +1,5 @@
 fractol
 fractol.vgr
-test.c
-test.o
-fractol.test
 objs/
 .normignore
 .vscode/
