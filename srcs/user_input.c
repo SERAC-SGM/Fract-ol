@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 14:30:50 by lletourn          #+#    #+#             */
-/*   Updated: 2023/02/04 17:12:08 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/04 17:52:07 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	get_color(t_data *data)
 	if (color == '1')
 		data->display_set = &monochrome_gradient;
 	else if (color == '2')
-		data->display_set = &linear_gradient;
+		data->display_set = &test;
 	else if (color == '3')
 		data->display_set = &psychedelic1;
 	else

@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:32:52 by lletourn          #+#    #+#             */
-/*   Updated: 2023/02/04 14:57:17 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/04 18:37:13 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,32 +50,6 @@ void	psychedelic_bnw(t_data *data, t_pixel pixel, double n)
 
 }
 
-void	color_map(t_data *data, t_pixel pixel, double n)
-{
-	unsigned char	color[3];
-
-	if (n < ITER_MAX / 3)
-	{
-		color[0] = 127;
-		color[1] = n * 3 * 200 / ITER_MAX;
-		color[2] = 255;
-	}
-	else if (n < 2 * ITER_MAX / 3)
-	{
-		color[0] = (ITER_MAX - n) * 3 * 50 / ITER_MAX;
-		color[1] = 100;
-		color[2] = 200;
-	}
-	else
-	{
-		color[0] = 50;
-		color[1] = 140;
-		color[2] = (n - 2 * ITER_MAX / 3) * 3 * 123 / ITER_MAX;
-	}
-	pixel_put_in_image(&data->image, pixel.x, pixel.y,
-		encode_rgb(color[0], color[1], color[2]));
-}
-
 void	psychedelic1(t_data *data, t_pixel pixel, double n)
 {
 	int	r;
@@ -90,7 +64,7 @@ void	psychedelic1(t_data *data, t_pixel pixel, double n)
 		encode_rgb(r, g, b));
 }
 
-void	psychedelic2(t_data *data, t_pixel pixel, double n)
+void	pretty1(t_data *data, t_pixel pixel, double n)
 {
 	int	r;
 	int	g;
@@ -103,18 +77,27 @@ void	psychedelic2(t_data *data, t_pixel pixel, double n)
 		encode_rgb(r, g, b));
 }
 
-static double	lerp(double a, double b, double t)
+void	zer(double n, int *r, int *g, int *b)
 {
-	return (a + t * (b - a));
+	double	t;
+
+	t = n / ITER_MAX;
+	*r = (int)(9 * (1 - t) * t * t * t * 255);
+	*g = (int)(15 * (1 - t) * (1 - t) * t * t * 255);
+	*b = (int)(8.5 * (1 - t) * (1 - t) * (1 - t) * t * 255);
 }
 
-void	logarithmic_color_shift(t_data *data, t_pixel pixel, double n)
-{
-	double	ratio = n / ITER_MAX;
-	int	r = (int)lerp(0, 255, ratio);
-	int	g = (int)lerp(0, 100, ratio);
-	int	b = (int)lerp(100, 255, ratio);
+void	test(t_data *data, t_pixel pixel, double n)
+{	
+	int r, g, b, color;
 
-	pixel_put_in_image(&data->image, pixel.x, pixel.y,
-		encode_rgb(r, g, b));
+	if (n > ITER_MAX)
+		color = encode_rgb(0, 0, 0);
+	else
+	{
+		zer(n, &r, &g, &b);
+		color = encode_rgb(r, g, b);
+	}
+
+	pixel_put_in_image(&data->image, pixel.x, pixel.y, color);
 }
