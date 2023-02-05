@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 16:26:08 by lletourn          #+#    #+#             */
-/*   Updated: 2023/02/05 16:41:40 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/05 16:46:36 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	compute_julia(t_data *data, t_pixel pixel)
 	int			iter;
 
 	set_cartesian(data, &pixel, &z);
-	set_complex(&z0, -0.7, 0.27015);
+	set_complex(&z0, -0.9, 0.27015);
 	iter = 0;
 	while (z.x * z.x + z.y * z.y <= 4 && iter < ITER_MAX)
 	{
