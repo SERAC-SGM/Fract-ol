@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:52:06 by lletourn          #+#    #+#             */
-/*   Updated: 2023/02/04 14:55:54 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/05 16:34:11 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,54 +18,18 @@ void	set_zero(t_complex *z)
 	z->y = 0;
 }
 
-void	convert_to_cartesian(t_data *data, t_pixel *pixel, t_complex *z)
+void	set_complex(t_complex *z, double n1, double n2)
+{
+	z->x = n1;
+	z->y = n2;
+}
+
+void	set_cartesian(t_data *data, t_pixel *pixel, t_complex *z)
 {
 	z->x = ((float)pixel->x * (data->xmax - data->xmin)
 			/ (float)(WINDOW_WIDTH) + data->xmin);
 	z->y = ((float)pixel->y * (data->ymax - data->ymin)
 			/ (float)(WINDOW_HEIGHT) + data->ymin);
-}
-
-void	compute_mandelbrot(t_data *data, t_pixel pixel)
-{
-	t_complex	z;
-	t_complex	z0;
-	double		temp;
-	int			iter;
-
-	set_zero(&z);
-	convert_to_cartesian(data, &pixel, &z0);
-	iter = 0;
-	while (z.x * z.x + z.y * z.y <= 4 && iter < ITER_MAX)
-	{
-		temp = z.x * z.x - z.y * z.y + z0.x;
-		z.y = 2 * z.x * z.y + z0.y;
-		z.x = temp;
-		iter++;
-	}
-	data->display_set(data, pixel, iter);
-}
-
-void	compute_mandelbrot_fractional(t_data *data, t_pixel pixel)
-{
-	t_complex	z;
-	t_complex	z0;
-	double		temp;
-	int			iter;
-	double		fractional_count;
-
-	set_zero(&z);
-	convert_to_cartesian(data, &pixel, &z0);
-	iter = 0;
-	while (z.x * z.x + z.y * z.y <= 4 && iter < ITER_MAX)
-	{
-		temp = z.x * z.x - z.y * z.y + z0.x;
-		z.y = 2 * z.x * z.y + z0.y;
-		z.x = temp;
-		iter++;
-	}
-	fractional_count = iter - log(log(z.x * z.x + z.y * z.y)) * (1 / log(2));
-	data->display_set(data, pixel, fractional_count);
 }
 
 int	render_each_pixel(t_data *data)

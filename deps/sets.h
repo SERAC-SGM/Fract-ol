@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   user_input.h                                       :+:      :+:    :+:   */
+/*   sets.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/04 14:27:18 by lletourn          #+#    #+#             */
-/*   Updated: 2023/02/05 16:11:17 by lletourn         ###   ########.fr       */
+/*   Created: 2023/02/05 16:26:34 by lletourn          #+#    #+#             */
+/*   Updated: 2023/02/05 16:28:29 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef USER_INPUT_H
-# define USER_INPUT_H
+#ifndef SETS_H
+# define SETS_H
 
-void	get_set(t_data *data, char *arg);
-void	get_color(t_data *data, char *arg);
+void	compute_mandelbrot(t_data *data, t_pixel pixel);
+void	compute_mandelbrot_fractional_smooth(t_data *data, t_pixel pixel);
+void	compute_julia(t_data *data, t_pixel pixel);
 
 #endif

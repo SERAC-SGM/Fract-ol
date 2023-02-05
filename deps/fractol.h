@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:26:24 by lletourn          #+#    #+#             */
-/*   Updated: 2023/02/04 15:15:21 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/05 16:36:47 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@
 # include "maths.h"
 # include "mouse_and_keys.h"
 # include "user_input.h"
+# include "sets.h"
 
-# define ITER_MAX 1000
+# define ITER_MAX 120
+
+# define SMOOTHNESS_FACTOR 0.9
 
 # define XMAX 1.5
 # define XMIN -3

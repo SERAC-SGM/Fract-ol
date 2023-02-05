@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input.h                                            :+:      :+:    :+:   */
+/*   mouse_and_keys.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 13:59:47 by lletourn          #+#    #+#             */
-/*   Updated: 2023/02/03 16:33:17 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/05 15:40:28 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INPUT_H
-# define INPUT_H
+#ifndef MOUSE_AND_KEYS_H
+# define MOUSE_AND_KEYS_H
 
 # include <X11/keysym.h>
 

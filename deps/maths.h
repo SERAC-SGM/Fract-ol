@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:51:20 by lletourn          #+#    #+#             */
-/*   Updated: 2023/02/04 14:55:41 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/05 16:33:20 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ typedef struct s_complex
 	double	y;
 }			t_complex;
 
-void	convert_to_cartesian(t_data *data, t_pixel *pixel, t_complex *z);
-void	compute_mandelbrot_fractional(t_data *data, t_pixel pixel);
-void	compute_mandelbrot(t_data *data, t_pixel pixel);
+void	set_zero(t_complex *z);
+void	set_complex(t_complex *z, double n1, double n2);
+void	set_cartesian(t_data *data, t_pixel *pixel, t_complex *z);
 int		render_each_pixel(t_data *data);
 
 #endif

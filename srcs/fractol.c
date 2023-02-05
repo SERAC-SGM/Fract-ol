@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:29:46 by lletourn          #+#    #+#             */
-/*   Updated: 2023/02/04 16:44:38 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/05 16:13:09 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,13 @@ static int	init_data(t_data *data)
 	return (0);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	get_set(&data);
-	get_color(&data);
+	(void)argc;
+	get_set(&data, argv[1]);
+	get_color(&data, argv[2]);
 	if (init_data(&data))
 		return (MLX_ERROR);
 	mlx_loop_hook(data.mlx_ptr, &render, &data);

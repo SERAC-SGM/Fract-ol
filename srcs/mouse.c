@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:10:42 by lletourn          #+#    #+#             */
-/*   Updated: 2023/02/03 16:38:10 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/05 16:34:52 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	handle_mouse_input(int button, int x, int y, t_data *data)
 
 	mouse_position.x = x;
 	mouse_position.y = y;
-	convert_to_cartesian(data, &mouse_position, &mouse_cartesian);
+	set_cartesian(data, &mouse_position, &mouse_cartesian);
 	if (button == SCROLL_UP)
 		zoom_in(data, mouse_cartesian);
 	else if (button == SCROLL_DOWN)
