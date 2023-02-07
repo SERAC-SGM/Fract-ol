@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 13:57:17 by lletourn          #+#    #+#             */
-/*   Updated: 2023/02/04 14:32:08 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/07 17:12:54 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,7 @@ int	handle_keypress(int keysym, t_data *data)
 		move_view(data, 'l');
 	else if (keysym == XK_Right)
 		move_view(data, 'r');
+	else if (keysym == XK_c)
+		change_color(data);
 	return (0);
 }
