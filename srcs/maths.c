@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:52:06 by lletourn          #+#    #+#             */
-/*   Updated: 2023/02/05 16:34:11 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:32:37 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,18 @@ void	set_cartesian(t_data *data, t_pixel *pixel, t_complex *z)
 			/ (float)(WINDOW_WIDTH) + data->xmin);
 	z->y = ((float)pixel->y * (data->ymax - data->ymin)
 			/ (float)(WINDOW_HEIGHT) + data->ymin);
+}
+
+void	get_smooth(double *smooth, int iter, t_complex z)
+{
+	double	next;
+
+	*smooth = 0;
+	if (iter < ITER_MAX)
+	{
+		next = iter + 1 - log(log(sqrt(z.x * z.x + z.y * z.y))) / log(2);
+		*smooth += (next - *smooth) * SMOOTHNESS_FACTOR;
+	}
 }
 
 int	render_each_pixel(t_data *data)

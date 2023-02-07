@@ -6,16 +6,12 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 14:30:50 by lletourn          #+#    #+#             */
-/*   Updated: 2023/02/07 15:17:07 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:38:45 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../deps/fractol.h"
 #include "../printf/ft_printf.h"
-
-
-
-#include <stdio.h>
 
 int	ft_strcmp(char *s1, char *s2)
 {
@@ -39,7 +35,8 @@ void	invalid_parameters_output(int n)
 	else if (n == 1)
 	{
 		ft_printf("\nInvalid set, exiting...\n\n\nSets:");
-		ft_printf("	1.mandelbrot\n	2.fast_mandelbrot\n	3.julia\n\n");
+		ft_printf("	1.mandelbrot\n	2.fast_mandelbrot\n	3.julia\n");
+		ft_printf("	4.burning_ship\n	5.fast_burning_ship\n\n");
 		exit(0);
 	}
 }
@@ -50,6 +47,10 @@ void	get_set(t_data *data, int argc, char *arg)
 			data->compute_set = &compute_mandelbrot_fractional_smooth;
 	else if (argc == 3 && !ft_strcmp("fast_mandelbrot", arg))
 			data->compute_set = &compute_mandelbrot;
+	else if (argc == 3 && !ft_strcmp("burning_ship", arg))
+			data->compute_set = &compute_burning_ship_fractional_smooth;
+	else if (argc == 3 && !ft_strcmp("fast_burning_ship", arg))
+			data->compute_set = &compute_burning_ship;
 	else if (argc == 3 || argc == 5)
 	{
 		if (!ft_strcmp("julia", arg))
@@ -80,18 +81,17 @@ void	get_julia_params(t_data *data, int argc, char **argv)
 	double	x;
 	double	y;
 
+	if (ft_strcmp("julia", argv[1]))
+		return ;
 	if (argc == 3)
 	{
 		data->julia_x = -0.9;
 		data->julia_y = 0.27015;
-		printf("Rendering Julia set with default z0 = (%lf +j %lf)\n", data->julia_x, data->julia_y);
+		ft_printf("Rendering Julia set with default z0 = (-0.9 + 0.27015j)\n");
 		return ;
 	}
-	ft_printf("argv : %s %s\n", argv[3], argv [4]);
 	x = ft_atof(argv[3]);
 	y = ft_atof(argv[4]);
-	printf("x = %lf, y = %lf\n", x, y);
 	data->julia_x = x;
 	data->julia_y = y;
-	printf("Rendering Julia set with complex z0 = (%lf +i %lf)\n", data->julia_x, data->julia_y);
 }
