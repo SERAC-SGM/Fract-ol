@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:44:14 by lletourn          #+#    #+#             */
-/*   Updated: 2023/02/04 14:54:39 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/06 14:09:40 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ struct s_data
 	int		color;
 	void	(*compute_set)(t_data *, t_pixel);
 	void	(*display_set)(t_data *, t_pixel, double);
+	double	julia_x;
+	double	julia_y;
 };
 
 int		encode_rgb(__uint8_t red, __uint8_t green, __uint8_t blue);

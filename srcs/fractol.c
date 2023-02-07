@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:29:46 by lletourn          #+#    #+#             */
-/*   Updated: 2023/02/05 16:13:09 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:05:40 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	(void)argc;
-	get_set(&data, argv[1]);
+	get_set(&data, argc, argv[1]);
 	get_color(&data, argv[2]);
+	get_julia_params(&data, argc, argv);
 	if (init_data(&data))
 		return (MLX_ERROR);
 	mlx_loop_hook(data.mlx_ptr, &render, &data);

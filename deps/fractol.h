@@ -6,7 +6,7 @@
 /*   By: lletourn <lletourn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:26:24 by lletourn          #+#    #+#             */
-/*   Updated: 2023/02/05 16:36:47 by lletourn         ###   ########.fr       */
+/*   Updated: 2023/02/07 13:58:38 by lletourn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include "colors.h"
 # include "maths.h"
 # include "mouse_and_keys.h"
+# include "atof.h"
 # include "user_input.h"
 # include "sets.h"
 
