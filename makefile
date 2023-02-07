@@ -47,6 +47,8 @@ $(OBJS_DIR)%.o:	$(SRCS_DIR)%.c $(DEPS_PATH)
 
 all:		$(NAME)
 
+bonus:		$(NAME)
+
 printf:
 	@make -C $(PRINTF_DIR) --no-print-directory
 
@@ -55,13 +57,13 @@ minilibx-linux:
 
 
 $(NAME): minilibx-linux printf ${OBJS_PATH} 
-	$(CC) $(CFLAGS) $(OBJS_PATH) $(CFLAGS_MLX) $(LDFLAGS) $(CFLAGS_PRINTF) -o $(NAME) -lm
+	@$(CC) $(CFLAGS) $(OBJS_PATH) $(CFLAGS_MLX) $(LDFLAGS) $(CFLAGS_PRINTF) -o $(NAME) -lm
 
 valgrind :	minilibx-linux printf ${OBJS_PATH}
-	$(CC) $(CFLAGS) $(OBJS_PATH) $(CFLAGS_MLX) $(LDFLAGS) $(CFLAGS_PRINTF) -o $(NAME).vgr -g -lm
+	@$(CC) $(CFLAGS) $(OBJS_PATH) $(CFLAGS_MLX) $(LDFLAGS) $(CFLAGS_PRINTF) -o $(NAME).vgr -g -lm
 
 mac :		${OBJS_PATH}
-	$(CC) $(OBJS_PATH) -I /usr/X11/include -g -L /usr/X11/lib -l mlx -framework OpenGL -framework AppKit -o $(NAME)
+	@$(CC) $(OBJS_PATH) -I /usr/X11/include -g -L /usr/X11/lib -l mlx -framework OpenGL -framework AppKit -o $(NAME)
 
 clean_printf:
 	@make clean -C $(PRINTF_DIR)
