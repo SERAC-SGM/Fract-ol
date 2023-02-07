@@ -20,8 +20,8 @@ DEPS	=	fractol.h	\
 			maths.h		\
 			window.h	\
 			colors.h	\
-			mouse_and_keys.h	\
-			user_input.h	\
+			mouse_and_keys.h\
+			user_input.h\
 			sets.h		\
 			atof.h
 
@@ -82,4 +82,4 @@ fclean:		clean fclean_printf
 
 re:			fclean all
 
-.PHONY :	all valgrind mac clean fclean re minilibx-linux printf
+.PHONY:	all valgrind mac clean fclean re minilibx-linux printf
